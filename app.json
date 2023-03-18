@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "RxDB React-Native Example",
+    "jsEngine": "hermes",
+    "slug": "foo",
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "assets/**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "scheme": "myapp",
+    "web": {
+      "bundler": "metro"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "44538326-9751-4a31-a977-b09548e60205"
+      }
+    }
+  }
+}
