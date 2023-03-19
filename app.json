@@ -24,7 +24,9 @@
       "assets/**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "flipper": true,
+      "bundleIdentifier": "com.johnnyking.foo"
     },
     "scheme": "myapp",
     "web": {
@@ -34,6 +36,9 @@
       "eas": {
         "projectId": "44538326-9751-4a31-a977-b09548e60205"
       }
-    }
+    },
+    "plugins": [
+      "expo-build-properties"
+    ]
   }
 }

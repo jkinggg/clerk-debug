@@ -11,6 +11,15 @@ import {
 	collection
 } from 'firebase/firestore';
 import { replicateFirestore } from 'rxdb/plugins/replication-firestore';
+import {
+	FIREBASE_PROJECTID,
+	FIREBASE_APIKEY,
+	FIREBASE_AUTHDOMAIN,
+	FIREBASE_STORAGEBUCKET,
+	FIREBASE_MESSAGINGSENDERID,
+	FIREBASE_APPID,
+	FIREBASE_MEASUREMENTID,
+} from "@env"
 // import { observeNewCollections } from 'rxdb-hooks';
 
 addRxPlugin(RxDBMigrationPlugin)
@@ -65,15 +74,15 @@ const initialize = async () => {
     try {
         console.log('Start sync...');
         // Initialize Firebase services
-		const projectId = 'assistant-2e3e1';
+		const projectId = process.env.FIREBASE_PROJECTID;
 		const firebaseConfig = {
-			apiKey: "AIzaSyAXBYHJlHH4UqQ6oaQROkkd589vzrFpwoI",
-			authDomain: "assistant-2e3e1.firebaseapp.com",
+			apiKey: process.env.FIREBASE_APIKEY,
+			authDomain: process.env.FIREBASE_AUTHDOMAIN,
 			projectId: projectId,
-			storageBucket: "assistant-2e3e1.appspot.com",
-			messagingSenderId: "6430897433",
-			appId: "1:6430897433:web:858cfef0bcd2bd642ac188",
-			measurementId: "G-ESBXEFP14B"
+			storageBucket: process.env.FIREBASE_STORAGEBUCKET,
+			messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID,
+			appId: process.env.FIREBASE_APPID,
+			measurementId: process.env.FIREBASE_MEASUREMENTID
 		};
 		const app = initializeApp(firebaseConfig);
 

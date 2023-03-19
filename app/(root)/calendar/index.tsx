@@ -1,6 +1,7 @@
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import React, { useState, useEffect, useContext, useCallback, useMemo } from 'react';
-import { TimelineCalendar, EventItem, RangeTime } from '@howljs/calendar-kit';
+import TimelineCalendar from '../../../src/calendar/TimelineCalendar';
+import { RangeTime } from '../../../src/calendar/types';
 import { useRouter } from "expo-router";
 import { useRxData, useRxCollection, useRxQuery } from 'rxdb-hooks';
 import { AppContext } from "../../../data/context";
@@ -8,15 +9,13 @@ import { CollectionName } from "../../../data/initialize";
 
 export default function CalendarScreen() {
   
-  const { result: events, isFetching } = useRxData<Event>(
+  const { result: calendarEvents, isFetching } = useRxData(
 		'events',
 		collection =>
 			collection?.find()
 	);
 
-	if (isFetching) {
-		return <Text>Loading...</Text>;
-	}
+  console.log(isFetching);
   
   {/*
   const { db } = useContext(AppContext);
@@ -65,9 +64,6 @@ export default function CalendarScreen() {
   }, []);
   */}
 
-  console.log(events);
-  console.log(exampleEvents);
-
   const _onDragCreateEnd = async (event: RangeTime) => {
     const randomId = Math.random().toString(36).slice(2, 10);
     const newEvent = {
@@ -79,12 +75,22 @@ export default function CalendarScreen() {
     };
     await db[CollectionName].insert(newEvent);
   };
+  
+  {/*
+  if (isFetching) {
+		return <Text>Loading...</Text>;
+	}
+  */}
+
+  console.log(calendarEvents);
+  // console.log(exampleEvents);
 
   return (
     <SafeAreaView style={styles.container}>
       <TimelineCalendar
         viewMode="week"
-        events={events}
+        isLoading={isFetching}
+        events={calendarEvents}
         allowDragToCreate
         onDragCreateEnd={_onDragCreateEnd}
         // Optional
