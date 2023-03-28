@@ -2,48 +2,79 @@
 import 'react-native-get-random-values';
 import 'expo-dev-client';
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 // import Heroes from '.';
-import { Slot, Stack } from 'expo-router';
+import { Stack, Navigator, usePathname, Slot, Link } from 'expo-router';
 import initialize from '../data/initialize';
-import { AppContext } from "../data/context";
+import { DimensionsContext, DimensionsContextProvider } from "../utils/dimensions";
 import { Provider } from 'rxdb-hooks';
 import { RxDatabase } from 'rxdb';
+import {Drawer} from "expo-router/drawer";
+import {DrawerContentScrollView, DrawerItem} from "@react-navigation/drawer";
+import { Dimensions } from 'react-native';
 
-export const unstable_settings = {
-    // Ensure that reloading on `/modal` keeps a back button present.
-    initialRouteName: '(root)',
-};
+export {
+    // Catch any errors thrown by the Layout component.
+    ErrorBoundary,
+} from 'expo-router';
 
-export default function RootLayout() {
-    
+export default function RootLayout() {    
     const [db, setDb] = useState<RxDatabase>();
 
 	useEffect(() => {
 		initialize().then(setDb);
 	}, []);
 
-    {/*
-    const [db, setDb] = useState(null);
+    const windowDimensions = Dimensions.get('window');
+
+    const [dimensions, setDimensions] = useState({
+        window: windowDimensions,
+    });
 
     useEffect(() => {
-        const initDB = async () => {
-            const _db = await initialize();
-            setDb(_db);
-        };
-        initDB().then();
-    }, []);
-    */}
+        const subscription = Dimensions.addEventListener(
+          'change',
+          ({window}) => {
+            setDimensions({window});
+          },
+        );
+        return () => subscription?.remove();
+    });
 
+    console.log(dimensions);
 
     return (
         <Provider db={db}>
-        {/* <AppContext.Provider value={{ db }}> */}
-            <Stack>
-                <Stack.Screen name="(root)" options={{ headerShown: false }} />
-               {/* <Stack.Screen name="modal" options={{ presentation: 'modal' }} /> */}
-            </Stack>
-        {/* </AppContext.Provider> */}
+            <DimensionsContextProvider>
+                <Drawer 
+                    drawerContent={(props) => <DefaultDrawer {...props} />}
+                    defaultStatus={dimensions.window.width > dimensions.window.height ? "open" : "closed"}
+                    screenOptions={{
+                        drawerHideStatusBarOnOpen: true,
+                        headerShown: false
+                    }}
+                >
+                    <Slot/>
+                </Drawer>
+            </DimensionsContextProvider>
         </Provider>
+    );
+};
+
+function DefaultDrawer(props) {
+    return (
+        <DrawerContentScrollView {...props}>
+            {false &&
+                [
+                    <Link href={'/(main)/data'} onPress={() => props.navigation.closeDrawer()}>Home</Link>,
+                    <Link href={'/(main)/settings'} onPress={() => props.navigation.closeDrawer()}>Calendar</Link>,
+                    <Link href={'/(main)/logout'} onPress={() => props.navigation.closeDrawer()}>Tasks</Link>,
+                    <Link href={'/(main)/logout'} onPress={() => props.navigation.closeDrawer()}>Notes</Link>,
+                ]
+            }
+            <Link href={'/(other)/data'} onPress={() => props.navigation.closeDrawer()}>Data</Link>
+            <Link href={'/(other)/settings'} onPress={() => props.navigation.closeDrawer()}>Settings</Link>
+            <Link href={'/(other)/logout'} onPress={() => props.navigation.closeDrawer()}>Logout</Link>
+        </DrawerContentScrollView>
     );
 };

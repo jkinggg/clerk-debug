@@ -59,7 +59,7 @@ const initialize = async () => {
     }
 
     try {
-        console.log('Adding hero collection...');
+        console.log('Adding collections...');
         await db.addCollections({
             [CollectionName]: {
                 schema: schema,

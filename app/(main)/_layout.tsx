@@ -1,8 +1,7 @@
-import { Tabs, Link } from "expo-router";
+import { Tabs, Link, useRouter } from "expo-router";
 import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function AppLayout() {
-
   return (
     <Tabs 
       screenOptions= {{ 
@@ -11,14 +10,12 @@ export default function AppLayout() {
         headerShown: false 
       }
     }>
-      {/*
       <Tabs.Screen 
         name="index" 
         options={{ 
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="weather-sunset" size={25} color={color} />
         }}
       />
-      */}
       <Tabs.Screen 
         name="calendar" 
         options={{ 
