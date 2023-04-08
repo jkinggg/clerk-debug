@@ -1,4 +1,4 @@
-const eventSchema = {
+export const eventSchema = {
     version: 0,
     title: 'Events',
     description: 'Events for the calendar',
@@ -28,4 +28,32 @@ const eventSchema = {
     required: ['id'],
 };
 
-export default eventSchema;
+export const taskSchema = {
+    version: 0,
+    title: 'Tasks',
+    description: 'Tasks for the queue',
+    primaryKey: 'id',
+    type: 'object',
+    properties: {
+        id: {
+            type: 'string',
+            maxLength: '128',
+        },
+        dueDate: {
+            type: 'string',
+        },
+        duration: {
+            type: 'number',
+        },
+        title: {
+            type: 'string',
+        },
+        isCompleted: {
+            type: 'boolean',
+        },
+        description: {
+            type: 'string',
+        }
+    },
+    required: ['id'],
+};

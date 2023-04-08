@@ -25,7 +25,7 @@ function customStyleq(styles, isRTL) {
       if (compiledStyle != null) {
         return localizeStyle(compiledStyle, isRTL);
       }
-      return style;
+      return preprocess(style);
     }
   })(styles);
 }
@@ -104,12 +104,11 @@ function compose(style1: any, style2: any): any {
       );
     }
     /* eslint-enable prefer-rest-params */
+    console.warn(
+      'StyleSheet.compose(a, b) is deprecated; use array syntax, i.e., [a,b].'
+    );
   }
-  if (style1 && style2) {
-    return [style1, style2];
-  } else {
-    return style1 || style2;
-  }
+  return [style1, style2];
 }
 
 /**
@@ -148,7 +147,7 @@ function StyleSheet(styles: any, options?: Options): StyleProps {
   const isRTL = options != null && options.writingDirection === 'rtl';
   const styleProps: StyleProps = customStyleq(styles, isRTL);
   if (Array.isArray(styleProps) && styleProps[1] != null) {
-    styleProps[1] = inline(preprocess(styleProps[1]), isRTL);
+    styleProps[1] = inline(styleProps[1], isRTL);
   }
   return styleProps;
 }

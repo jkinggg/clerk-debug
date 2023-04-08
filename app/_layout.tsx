@@ -12,6 +12,13 @@ import { RxDatabase } from 'rxdb';
 import {Drawer} from "expo-router/drawer";
 import {DrawerContentScrollView, DrawerItem} from "@react-navigation/drawer";
 import { Dimensions } from 'react-native';
+import { useFonts } from 'expo-font'
+import { StatusBar } from 'expo-status-bar'
+import { useColorScheme } from 'react-native'
+import { Paragraph, Spacer, TamaguiProvider, Theme, YStack } from 'tamagui'
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import config from '../tamagui.config'
+
 
 export {
     // Catch any errors thrown by the Layout component.
@@ -43,19 +50,36 @@ export default function RootLayout() {
 
     console.log(dimensions);
 
+    const colorScheme = useColorScheme()
+
+    const [loaded] = useFonts({
+        Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
+        InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
+    })
+
+    if (!loaded) {
+        return null
+    }
+
     return (
         <Provider db={db}>
             <DimensionsContextProvider>
-                <Drawer 
-                    drawerContent={(props) => <DefaultDrawer {...props} />}
-                    defaultStatus={dimensions.window.width > dimensions.window.height ? "open" : "closed"}
-                    screenOptions={{
-                        drawerHideStatusBarOnOpen: true,
-                        headerShown: false
-                    }}
-                >
-                    <Slot/>
-                </Drawer>
+                <SafeAreaProvider>
+                    <TamaguiProvider config={config}>
+                        <Theme name='light_blue'>
+                            <Drawer 
+                                drawerContent={(props) => <DefaultDrawer {...props} />}
+                                defaultStatus={dimensions.window.width > dimensions.window.height ? "open" : "closed"}
+                                screenOptions={{
+                                    drawerHideStatusBarOnOpen: true,
+                                    headerShown: false
+                                }}
+                            >
+                                <Slot/>
+                            </Drawer>
+                        </Theme>
+                    </TamaguiProvider>
+                </SafeAreaProvider>
             </DimensionsContextProvider>
         </Provider>
     );

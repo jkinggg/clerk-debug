@@ -5,12 +5,12 @@ import { RangeTime } from '../../../src/calendar/types';
 import { useRouter } from "expo-router";
 import { useRxData, useRxCollection, useRxQuery } from 'rxdb-hooks';
 import { AppContext } from "../../../data/context";
-import { CollectionName } from "../../../data/initialize";
+import { eventsCollectionName } from "../../../data/initialize";
 
 export default function CalendarScreen() {
   
   const { result: calendarEvents, isFetching } = useRxData(
-		'events',
+		eventsCollectionName,
 		collection =>
 			collection?.find()
 	);
@@ -63,6 +63,7 @@ export default function CalendarScreen() {
     setEvents(exampleEvents);
   }, []);
   */}
+  const eventsCollection = useRxCollection(eventsCollectionName);
 
   const _onDragCreateEnd = async (event: RangeTime) => {
     const randomId = Math.random().toString(36).slice(2, 10);
@@ -73,7 +74,7 @@ export default function CalendarScreen() {
       end: event.end,
       color: '#A3C7D6',
     };
-    await db[CollectionName].insert(newEvent);
+    await eventsCollection.upsert(newEvent);
   };
   
   {/*

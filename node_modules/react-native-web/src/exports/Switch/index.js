@@ -214,11 +214,11 @@ const styles = StyleSheet.create({
     borderRadius: '100%',
     boxShadow: thumbDefaultBoxShadow,
     start: '0%',
-    transform: [{ translateZ: 0 }],
+    transform: 'translateZ(0)',
     transitionDuration: '0.1s'
   },
   thumbActive: {
-    start: '100%'
+    insetInlineStart: '100%'
   },
   nativeControl: {
     ...StyleSheet.absoluteFillObject,
