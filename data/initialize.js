@@ -4,22 +4,12 @@ import { RxDBDevModePlugin } from 'rxdb/plugins/dev-mode';
 import { RxDBMigrationPlugin } from 'rxdb/plugins/migration'
 import { RxDBUpdatePlugin } from 'rxdb/plugins/update'
 import { RxDBQueryBuilderPlugin } from 'rxdb/plugins/query-builder'
-import { replicateCouchDB } from 'rxdb/plugins/replication-couchdb'
 import { initializeApp } from 'firebase/app';
-import {
-	getFirestore,
-	collection
-} from 'firebase/firestore';
+import { getFirestore, collection } from 'firebase/firestore';
 import { replicateFirestore } from 'rxdb/plugins/replication-firestore';
-import {
-	FIREBASE_PROJECTID,
-	FIREBASE_APIKEY,
-	FIREBASE_AUTHDOMAIN,
-	FIREBASE_STORAGEBUCKET,
-	FIREBASE_MESSAGINGSENDERID,
-	FIREBASE_APPID,
-	FIREBASE_MEASUREMENTID,
-} from "@env"
+import { getAuth, signInWithCustomToken } from "firebase/auth";
+import { app } from "firebase/app";
+import { useAuth } from "@clerk/clerk-expo";
 // import { observeNewCollections } from 'rxdb-hooks';
 
 addRxPlugin(RxDBMigrationPlugin)
@@ -36,7 +26,6 @@ import {
 const dbName = 'focused';
 export const eventsCollectionName = 'events';
 export const tasksCollectionName = 'tasks';
-
 
 const isDevelopment = process.env.NODE_ENV !== 'production' || process.env.DEBUG_PROD === 'true';
 
@@ -79,21 +68,8 @@ const initialize = async () => {
     try {
         console.log('Start sync...');
         // Initialize Firebase services
-		const projectId = process.env.FIREBASE_PROJECTID;
-		const firebaseConfig = {
-			apiKey: process.env.FIREBASE_APIKEY,
-			authDomain: process.env.FIREBASE_AUTHDOMAIN,
-			projectId: projectId,
-			storageBucket: process.env.FIREBASE_STORAGEBUCKET,
-			messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID,
-			appId: process.env.FIREBASE_APPID,
-			measurementId: process.env.FIREBASE_MEASUREMENTID
-		};
-		const app = initializeApp(firebaseConfig);
-
-		// For more information on how to access Firebase in your project,
-		// see the Firebase documentation: https://firebase.google.com/docs/web/setup#access-firebase
-	
+		// const projectId = process.env.FIREBASE_PROJECTID;
+		const projectId = 'assistant-2e3e1';
 		const firestoreDatabase = getFirestore(app);
 		const firestoreEventsCollection = collection(firestoreDatabase, 'events');
 		const firestoreTasksCollection = collection(firestoreDatabase, 'tasks');

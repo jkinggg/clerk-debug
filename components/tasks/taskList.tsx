@@ -21,7 +21,10 @@ import { Link } from 'expo-router';
 import { FlashList } from "@shopify/flash-list";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRxData, useRxCollection, useRxQuery } from 'rxdb-hooks';
-import { tasksCollectionName } from "../../../data/initialize";
+import { tasksCollectionName } from "../../data/initialize";
+import { PanGestureHandler } from 'react-native-gesture-handler';
+import { useDragTaskContext } from '../../hooks/useDragTaskContext';
+import Animated, { useAnimatedGestureHandler, useAnimatedStyle, runOnJS, useSharedValue } from 'react-native-reanimated';
 
 const DATA = [
   {
@@ -34,7 +37,83 @@ const DATA = [
   },
 ];
 
-export default function Tasks() {
+const TaskItem = ({ item, setOpen }) => {
+  const {
+    isTaskBeingDragged,
+    taskBeingDraggedId,
+    setIsTaskBeingDragged,
+    taskDropX,
+    taskDropY,
+    setTaskDropX,
+    setTaskDropY,
+  } = useDragTaskContext();
+
+  const panGestureHandler = useAnimatedGestureHandler({
+    onStart: (_, ctx) => {
+      if (!isTaskBeingDragged.value) {
+        isTaskBeingDragged.value = true;
+        taskBeingDraggedId.value = item.id;
+      }
+    },
+    onActive: (event, ctx) => {
+      taskDropX.value = event.translationX;
+      taskDropY.value = event.translationY;
+    },
+    onEnd: () => {
+      // Reset the shared values
+      taskDropX.value = 0;
+      taskDropY.value = 0;
+      isTaskBeingDragged.value = false;
+      taskBeingDraggedId.value = null;  // Reset the task id
+      
+      // Update the context values
+      runOnJS(setIsTaskBeingDragged)(isTaskBeingDragged.value);
+      runOnJS(setTaskDropX)(taskDropX.value);
+      runOnJS(setTaskDropY)(taskDropY.value);
+    },
+  });
+
+  const animatedStyle = useAnimatedStyle(() => {
+    if (taskBeingDraggedId.value === item.id) {
+      return {
+        transform: [
+          { translateX: taskDropX.value },
+          { translateY: taskDropY.value },
+        ],
+      };
+    } else {
+      return {};
+    }
+  });
+
+  return (
+    <PanGestureHandler onGestureEvent={panGestureHandler}>
+      <Animated.View style={animatedStyle}>
+        <Card size="$2" elevate onPress={() => setOpen(true)}>
+          <XStack>
+            <YStack alignItems='center' justifyContent='center' flex={2}>
+              <Checkbox size="$4">
+                <Checkbox.Indicator>
+                  <Ionicons name="checkmark" size={12} color="black" />
+                </Checkbox.Indicator>
+              </Checkbox>
+            </YStack>
+            <YStack flex={10}>
+              <Card.Header>
+                <Text>{item.title}</Text>
+              </Card.Header>
+              <Card.Footer>
+                <Button size="$1" borderRadius="$10">Purchase</Button>
+              </Card.Footer>
+            </YStack>
+          </XStack>
+        </Card>
+      </Animated.View>
+    </PanGestureHandler>
+  );
+};
+
+const Tasks = () => {
   const insets = useSafeAreaInsets();
   const [open, setOpen] = useState(false);
   const [position, setPosition] = useState(0);
@@ -77,30 +156,7 @@ export default function Tasks() {
       <YStack paddingTop={insets.top} paddingBottom={insets.bottom} flex={1}>
         <FlashList
           data={DATA}
-          renderItem={({ item }) => 
-            <>
-            <Card size="$2" elevate onPress={() => setOpen(true)}>
-              <XStack>
-                <YStack alignItems='center' justifyContent='center' flex={2}>
-                  <Checkbox size="$4">
-                    <Checkbox.Indicator>
-                      <Ionicons name="checkmark" size={12} color="black" />
-                    </Checkbox.Indicator>
-                  </Checkbox>
-                </YStack>
-                <YStack flex={10}>
-                  <Card.Header>
-                    <Text>{item.title}</Text>
-                  </Card.Header>
-                  <Card.Footer>
-                    <Button size="$1" borderRadius="$10">Purchase</Button>
-                  </Card.Footer>
-                </YStack>
-              </XStack>
-            </Card>
-            <Separator />
-            </>
-          }
+          renderItem={({ item }) => <TaskItem item={item} setOpen={setOpen} />}
           estimatedItemSize={2}
         />
         <Sheet
@@ -134,3 +190,5 @@ export default function Tasks() {
       </YStack>
   )
 }
+
+export default Tasks;
