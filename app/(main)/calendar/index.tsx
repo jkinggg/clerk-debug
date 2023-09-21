@@ -7,7 +7,7 @@ import { useRxData, useRxCollection, useRxQuery } from 'rxdb-hooks';
 import { AppContext } from "../../../data/context";
 import { eventsCollectionName } from "../../../data/initialize";
 import { XStack, YStack, useMedia } from 'tamagui'
-import Tasks from '../../../components/tasks/taskList';
+import TaskWrapper from '../../../components/tasks/taskList';
 import useScreenDimensions from '../../../hooks/screenDimensions';
 import DragTaskProvider from '../../../contexts/dragTaskProvider';
 
@@ -68,9 +68,8 @@ export default function CalendarScreen() {
               // End Optional
             />
           </YStack>
-
           <YStack width={sidebarWidth}>
-            <Tasks />
+            <TaskWrapper />
           </YStack>
         </XStack>
       </DragTaskProvider>
@@ -81,6 +80,6 @@ export default function CalendarScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFF',
   },
 });

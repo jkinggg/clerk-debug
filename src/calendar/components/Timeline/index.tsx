@@ -4,6 +4,8 @@ import React, {
   useEffect,
   useImperativeHandle,
   useMemo,
+  useContext,
+  useRef,
 } from 'react';
 import {
   GestureResponderEvent,
@@ -32,6 +34,7 @@ import { clampValues, groupEventsByDate } from '../../utils';
 import DragCreateItem from './DragCreateItem';
 import TimelineHeader from './TimelineHeader';
 import TimelineSlots from './TimelineSlots';
+import { useDragTaskContext } from '../../../../hooks/useDragTaskContext';
 
 const Timeline: React.ForwardRefRenderFunction<
   TimelineCalendarHandle,
@@ -242,6 +245,9 @@ const Timeline: React.ForwardRefRenderFunction<
   } = useDragCreateGesture({
     onDragCreateEnd,
   });
+
+  const { isTaskBeingDragged, taskBeingDraggedId, taskDropX, taskDropY } = useDragTaskContext();
+  const wasTaskBeingDragged = useRef(isTaskBeingDragged.value);
 
   const _onLongPressBackground = (
     date: string,

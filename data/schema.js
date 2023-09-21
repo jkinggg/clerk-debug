@@ -58,6 +58,27 @@ export const taskSchema = {
     required: ['id'],
 };
 
+export const bookmarkSchema = {
+    version: 0,
+    title: 'Bookmarks',
+    description: 'Content saved from sites across the internet',
+    primaryKey: 'id',
+    type: 'object',
+    properties: {
+        id: {
+            type: 'string',
+            maxLength: '128',
+        },
+        description: {
+            type: 'string',
+        },
+        image_url: {
+            type: 'string',
+        }
+    },
+    required: ['id'],
+};
+
 export const sessionSchema = {
     version: 0,
     title: 'Sessions',

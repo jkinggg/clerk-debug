@@ -4,7 +4,6 @@ import { useSharedValue } from 'react-native-reanimated';
 export const DragTaskContext = createContext({
   isTaskBeingDragged: null,
   taskBeingDraggedId: null,
-  setIsTaskBeingDragged: () => {},
   setTaskBeingDraggedId: () => {},
   taskDropX: null,
   taskDropY: null,
@@ -13,14 +12,10 @@ export const DragTaskContext = createContext({
 });
 
 const DragTaskProvider = ({ children }) => {
-  const isTaskBeingDragged = useSharedValue(false);
+  const isTaskBeingDragged = useSharedValue(false); // only declare this once in the provider
   const taskBeingDraggedId = useSharedValue(null);
   const taskDropX = useSharedValue(0);
   const taskDropY = useSharedValue(0);
-
-  const setIsTaskBeingDragged = (value) => {
-    isTaskBeingDragged.value = value;
-  };
 
   const setTaskBeingDraggedId = (id) => {
     taskBeingDraggedId.value = id;
@@ -35,10 +30,9 @@ const DragTaskProvider = ({ children }) => {
   };
 
   const value = {
-    isTaskBeingDragged,
-    setIsTaskBeingDragged,
-    taskBeingDraggedId,
+    isTaskBeingDragged, // include this in the value passed to provider
     setTaskBeingDraggedId,
+    taskBeingDraggedId,
     taskDropX,
     setTaskDropX,
     taskDropY,

@@ -12,8 +12,10 @@ import {
   TextArea,
   XStack,
   YStack,
+  ZStack,
   Card,
   Form,
+  Square,
 } from 'tamagui'
 import { FontAwesome, MaterialIcons, MaterialCommunityIcons, Feather, Ionicons } from '@expo/vector-icons';
 import React, { useState, useEffect } from 'react'
@@ -22,92 +24,117 @@ import { FlashList } from "@shopify/flash-list";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRxData, useRxCollection, useRxQuery } from 'rxdb-hooks';
 import { tasksCollectionName } from "../../data/initialize";
+import Task from "./task";
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import { useDragTaskContext } from '../../hooks/useDragTaskContext';
-import Animated, { useAnimatedGestureHandler, useAnimatedStyle, runOnJS, useSharedValue } from 'react-native-reanimated';
+import Animated, { useAnimatedGestureHandler, useAnimatedStyle, runOnJS, useDerivedValue, useAnimatedReaction } from 'react-native-reanimated';
+import { View } from 'react-native';
 
 const DATA = [
   {
+    id: 1,
     title: "First Item",
     isCompleted: false
   },
   {
+    id: 2,
     title: "Second Item",
     isCompleted: true
   },
 ];
 
-const TaskItem = ({ item, setOpen }) => {
+const ClonedTask = () => {
   const {
     isTaskBeingDragged,
     taskBeingDraggedId,
-    setIsTaskBeingDragged,
     taskDropX,
     taskDropY,
-    setTaskDropX,
-    setTaskDropY,
   } = useDragTaskContext();
 
-  const panGestureHandler = useAnimatedGestureHandler({
-    onStart: (_, ctx) => {
-      if (!isTaskBeingDragged.value) {
-        isTaskBeingDragged.value = true;
-        taskBeingDraggedId.value = item.id;
-      }
-    },
-    onActive: (event, ctx) => {
-      taskDropX.value = event.translationX;
-      taskDropY.value = event.translationY;
-    },
-    onEnd: () => {
-      // Reset the shared values
-      taskDropX.value = 0;
-      taskDropY.value = 0;
-      isTaskBeingDragged.value = false;
-      taskBeingDraggedId.value = null;  // Reset the task id
-      
-      // Update the context values
-      runOnJS(setIsTaskBeingDragged)(isTaskBeingDragged.value);
-      runOnJS(setTaskDropX)(taskDropX.value);
-      runOnJS(setTaskDropY)(taskDropY.value);
-    },
+  console.log({
+    isTaskBeingDragged,
+    taskBeingDraggedId,
+    taskDropX,
+    taskDropY,
   });
 
+  if (!isTaskBeingDragged) {
+    return null;
+  }
+
+  const task = {
+    id: 1,
+    title: "Dragging Item",
+    isCompleted: false
+  };
+
   const animatedStyle = useAnimatedStyle(() => {
-    if (taskBeingDraggedId.value === item.id) {
-      return {
-        transform: [
-          { translateX: taskDropX.value },
-          { translateY: taskDropY.value },
-        ],
-      };
-    } else {
-      return {};
-    }
+    return {
+      transform: [
+        { translateX: taskDropX.value },
+        { translateY: taskDropY.value },
+      ],
+    };
   });
 
   return (
-    <PanGestureHandler onGestureEvent={panGestureHandler}>
       <Animated.View style={animatedStyle}>
-        <Card size="$2" elevate onPress={() => setOpen(true)}>
-          <XStack>
-            <YStack alignItems='center' justifyContent='center' flex={2}>
-              <Checkbox size="$4">
-                <Checkbox.Indicator>
-                  <Ionicons name="checkmark" size={12} color="black" />
-                </Checkbox.Indicator>
-              </Checkbox>
-            </YStack>
-            <YStack flex={10}>
-              <Card.Header>
-                <Text>{item.title}</Text>
-              </Card.Header>
-              <Card.Footer>
-                <Button size="$1" borderRadius="$10">Purchase</Button>
-              </Card.Footer>
-            </YStack>
-          </XStack>
-        </Card>
+        <Task item={task} />
+      </Animated.View>
+  );
+};
+
+const TaskItem = ({ item, setOpen }) => {
+  const {
+    isTaskBeingDragged, // get this from context
+    setTaskBeingDraggedId,
+    taskDropX,
+    taskDropY,
+  } = useDragTaskContext();
+
+  console.log("isTaskBeingDragged: ", isTaskBeingDragged.value);
+
+  const onDragStart = (id) => {
+    setTaskBeingDraggedId(id);
+    console.log("onDragStart: ", id)
+  };
+
+  const onDragEnd = () => {
+    setTaskBeingDraggedId(null);
+    console.log("onDragEnd");
+  };
+
+  const panGestureHandler = React.useCallback(
+    useAnimatedGestureHandler({
+      onStart: (_, ctx) => {
+        ctx.startX = taskDropX.value;
+        ctx.startY = taskDropY.value;
+        isTaskBeingDragged.value = true;
+        runOnJS(onDragStart)(item.id);
+        console.log(`onStart: taskDropX = ${taskDropX.value}, taskDropY = ${taskDropY.value}`);
+      },
+      onActive: (event, ctx) => {
+        if(isTaskBeingDragged.value) {
+          taskDropX.value = ctx.startX + event.translationX;
+          taskDropY.value = ctx.startY + event.translationY;
+          console.log(`onActive: taskDropX = ${taskDropX.value}, taskDropY = ${taskDropY.value}`);
+        }
+      },
+      onEnd: () => {
+        isTaskBeingDragged.value = false;
+        runOnJS(onDragEnd)();
+        taskDropX.value = 0;  // reset taskDropX
+        taskDropY.value = 0;  // reset taskDropY
+        console.log(`onEnd: taskDropX = ${taskDropX.value}, taskDropY = ${taskDropY.value}`);
+      },
+    }),
+    [item.id]
+  );
+
+  return (
+    <PanGestureHandler onGestureEvent={panGestureHandler}>
+      <Animated.View>
+        <Task item={item} />
       </Animated.View>
     </PanGestureHandler>
   );
@@ -153,42 +180,63 @@ const Tasks = () => {
   // }, [taskTitle, taskDescription]);
 
   return (
-      <YStack paddingTop={insets.top} paddingBottom={insets.bottom} flex={1}>
-        <FlashList
-          data={DATA}
-          renderItem={({ item }) => <TaskItem item={item} setOpen={setOpen} />}
-          estimatedItemSize={2}
-        />
-        <Sheet
-          forceRemoveScrollEnabled={open}
-          modal={true}
-          open={open}
-          onOpenChange={setOpen}
-          snapPoints={[75, 50, 25]}
-          dismissOnSnapToBottom
-          position={position}
-          onPositionChange={setPosition}
-          zIndex={100_000}
-          animation="bouncy" // for the css driver
-        >
-          <Sheet.Overlay />
-          <Sheet.Handle />
-          <Sheet.Frame flex={1} padding="$4" justifyContent="center" alignItems="center" space="$5">
-            <YStack flex={1} alignSelf='stretch'>
-              <Form onSubmit={() => createTask()}>
-                <Input value={taskTitle} onChangeText={setTaskTitle} placeholder="Title" borderWidth={2} />
-                <TextArea value={taskDescription} onChangeText={setTaskDescription} minHeight={140} placeholder="Description" numberOfLines={4} />
-                <Form.Trigger asChild disabled={status !== 'off'}>
-                <Button icon={status === 'submitting' ? () => <Spinner /> : undefined}>
-                  Add
-                </Button>
-                </Form.Trigger>
-              </Form>
-            </YStack>
-          </Sheet.Frame>
-        </Sheet>
-      </YStack>
+    <YStack paddingTop={insets.top} paddingBottom={insets.bottom} flex={1}>
+      <FlashList
+        data={DATA}
+        renderItem={({ item }) => <TaskItem item={item} setOpen={setOpen} />}
+        estimatedItemSize={2}
+      />
+      <Sheet
+        forceRemoveScrollEnabled={open}
+        modal={true}
+        open={open}
+        onOpenChange={setOpen}
+        snapPoints={[75, 50, 25]}
+        dismissOnSnapToBottom
+        position={position}
+        onPositionChange={setPosition}
+        zIndex={100_000}
+        animation="bouncy" // for the css driver
+      >
+        <Sheet.Overlay />
+        <Sheet.Handle />
+        <Sheet.Frame flex={1} padding="$4" justifyContent="center" alignItems="center" space="$5">
+          <YStack flex={1} alignSelf='stretch'>
+            <Form onSubmit={() => createTask()}>
+              <Input value={taskTitle} onChangeText={setTaskTitle} placeholder="Title" borderWidth={2} />
+              <TextArea value={taskDescription} onChangeText={setTaskDescription} minHeight={140} placeholder="Description" numberOfLines={4} />
+              <Form.Trigger asChild disabled={status !== 'off'}>
+              <Button icon={status === 'submitting' ? () => <Spinner /> : undefined}>
+                Add
+              </Button>
+              </Form.Trigger>
+            </Form>
+          </YStack>
+        </Sheet.Frame>
+      </Sheet>
+    </YStack>
   )
 }
 
-export default Tasks;
+const TasksWrapper = () => {
+  const { isTaskBeingDragged } = useDragTaskContext();
+  const [isDragging, setIsDragging] = useState(false);
+  useDerivedValue(() => {
+    runOnJS(setIsDragging)(isTaskBeingDragged.value);
+  });
+
+  return (
+    <ZStack flex={1}>
+      <YStack flex={1}>
+        <Tasks />
+      </YStack>
+      {isDragging &&
+        <YStack flex={1}>
+          <ClonedTask />
+        </YStack>
+      }
+    </ZStack>
+  );
+};
+
+export default TasksWrapper;
