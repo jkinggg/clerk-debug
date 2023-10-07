@@ -54,6 +54,21 @@ export function AuthProvider(props) {
     }
   }, [auth.currentUser, db]);
 
+  // Check collection data utility
+  // useEffect(() => {
+  //   if (db) {
+  //     const collection = db.collections['bookmarks'];
+  //     if (collection) {
+  //       console.log(`Collection bookmarks exists`, collection);
+  //       collection.find().exec().then(docs => {
+  //         console.log('Collection data:', docs);
+  //       });
+  //     } else {
+  //       console.log(`Collection bookmarks does not exist`);
+  //     }
+  //   }
+  // }, [db]);
+
   return (
     <Provider db={db}>
       {props.children}

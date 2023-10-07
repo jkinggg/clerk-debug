@@ -175,7 +175,7 @@ const initialize = async () => {
             console.log('Replication canceled$:', v)
         })
         replicationState.error$.subscribe(async error => {
-            console.error('Replication error$:',error)
+            console.error('Replication error$:', error)
         })
 
     } catch (err) {

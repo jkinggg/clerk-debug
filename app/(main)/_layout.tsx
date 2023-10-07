@@ -1,5 +1,6 @@
 import { Tabs } from "expo-router";
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { HeroOutline } from '@nandorojo/heroicons'
 import React, {useEffect, useState} from 'react';
 
 export default function AppLayout() {
@@ -14,25 +15,37 @@ export default function AppLayout() {
         <Tabs.Screen 
           name="index" 
           options={{ 
-            tabBarIcon: ({ color }) => <MaterialCommunityIcons name="weather-sunset" size={25} color={color} />
+            tabBarIcon: ({ color }) => <HeroOutline.Home />
           }}
         />
         <Tabs.Screen 
           name="calendar" 
           options={{ 
-            tabBarIcon: ({ color }) => <MaterialCommunityIcons name="view-day-outline" size={25} color={color} />
+            tabBarIcon: ({ color }) => <HeroOutline.Calendar />
           }}
         />
         <Tabs.Screen 
           name="tasks" 
           options={{ 
-            tabBarIcon: ({ color }) => <MaterialCommunityIcons name="checkbox-outline" size={25} color={color} />
+            tabBarIcon: ({ color }) => <HeroOutline.CheckCircle />
           }}
         />
         <Tabs.Screen 
           name="notes" 
           options={{ 
-            tabBarIcon: ({ color }) => <MaterialIcons name="notes" size={25} color={color} />
+            tabBarIcon: ({ color }) => <HeroOutline.Document />
+          }}
+        />
+        <Tabs.Screen 
+          name="search" 
+          options={{ 
+            tabBarIcon: ({ color }) => <HeroOutline.MagnifyingGlass />
+          }}
+        />
+        <Tabs.Screen 
+          name="chat" 
+          options={{ 
+            tabBarIcon: ({ color }) => <HeroOutline.ChatBubbleOvalLeftEllipsis />
           }}
         />
       </Tabs>

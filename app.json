@@ -25,7 +25,6 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "flipper": true,
       "bundleIdentifier": "com.johnnyking.foo"
     },
     "scheme": "myapp",
@@ -34,11 +33,53 @@
     },
     "extra": {
       "eas": {
-        "projectId": "44538326-9751-4a31-a977-b09548e60205"
+        "projectId": "44538326-9751-4a31-a977-b09548e60205",
+        "build": {
+          "experimental": {
+            "ios": {
+              "appExtensions": [
+                {
+                  "targetName": "ShareExtension",
+                  "bundleIdentifier": "com.johnnyking.foo.share-extension",
+                  "entitlements": {
+                    "com.apple.security.application-groups": [
+                      "group.com.johnnyking.foo"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
       }
     },
     "plugins": [
-      "expo-build-properties"
-    ]
+      "expo-build-properties",
+      "expo-router",
+      [
+        "expo-config-plugin-ios-share-extension",
+        {
+          "activationRules": {
+            "NSExtensionActivationSupportsWebURLWithMaxCount": 1,
+            "NSExtensionActivationSupportsWebPageWithMaxCount": 1,
+            "NSExtensionActivationSupportsImageWithMaxCount": 1,
+            "NSExtensionActivationSupportsMovieWithMaxCount": 1
+          }
+        }
+      ],
+      [
+        "./plugins/withAndroidShareExtension/index",
+        {
+          "androidIntentFilters": [
+            "text/*",
+            "image/*",
+            "video/*"
+          ]
+        }
+      ]
+    ],
+    "android": {
+      "package": "com.johnnyking.foo"
+    }
   }
 }

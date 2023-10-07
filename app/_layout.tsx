@@ -2,7 +2,7 @@
 import 'react-native-get-random-values';
 import 'expo-dev-client';
 import React, {useEffect, useState} from 'react';
-import { Slot, Link } from 'expo-router';
+import { Slot, Link, usePathname, useRouter } from 'expo-router';
 import { DimensionsContext, DimensionsContextProvider } from "../utils/dimensions";
 import { Drawer } from "expo-router/drawer";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
@@ -17,6 +17,7 @@ import { ClerkProvider } from "@clerk/clerk-expo";
 import { tokenCache } from "../utils/cache";
 import { AuthProvider } from '../hooks/auth';
 import { initializeApp } from 'firebase/app';
+import useShareIntent from "../hooks/useShareIntent";
 
 export {
     // Catch any errors thrown by the Layout component.
@@ -30,35 +31,10 @@ export default function RootLayout() {
     const [dimensions, setDimensions] = useState({
         window: windowDimensions,
     });
-    useEffect(() => {
-        const subscription = Dimensions.addEventListener(
-          'change',
-          ({window}) => {
-            setDimensions({window});
-          },
-        );
-        return () => subscription?.remove();
-    });
-    console.log(dimensions);
 
-    // const colorScheme = useColorScheme()
-    const [loaded] = useFonts({
-        Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
-        InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
-    })
-    if (!loaded) {
-        return null
-    }
+    const router = useRouter();
+    const { shareIntent, resetShareIntent } = useShareIntent();
 
-    // const firebaseConfig = {
-    //     apiKey: process.env.FIREBASE_APIKEY,
-    //     authDomain: process.env.FIREBASE_AUTHDOMAIN,
-    //     projectId: process.env.FIREBASE_PROJECTID,
-    //     storageBucket: process.env.FIREBASE_STORAGEBUCKET,
-    //     messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID,
-    //     appId: process.env.FIREBASE_APPID,
-    //     measurementId: process.env.FIREBASE_MEASUREMENTID
-    // };
     const firebaseConfig = {
         apiKey: "AIzaSyAXBYHJlHH4UqQ6oaQROkkd589vzrFpwoI",
         authDomain: "assistant-2e3e1.firebaseapp.com",
@@ -68,13 +44,41 @@ export default function RootLayout() {
         appId: "1:6430897433:web:858cfef0bcd2bd642ac188",
         measurementId: "G-ESBXEFP14B"
     };
+
+    // const colorScheme = useColorScheme()
+    const [loaded] = useFonts({
+        Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
+        InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
+    })
+    
+    useEffect(() => {
+        const subscription = Dimensions.addEventListener(
+          'change',
+          ({window}) => {
+            setDimensions({window});
+          },
+        );
+        return () => subscription?.remove();
+    });
+
+    useEffect(() => {
+        if (shareIntent) {
+            router.replace({ pathname: "share", params: shareIntent });
+            resetShareIntent();
+        }
+    }, [shareIntent]);
+
     initializeApp(firebaseConfig);
+
+    if (!loaded) {
+        return null
+    }
 
     return (
         <DimensionsContextProvider>
             <SafeAreaProvider>
                 <TamaguiProvider config={config}>
-                    <Theme name='light_blue'>
+                    <Theme name='light'>
                         <ClerkProvider tokenCache={tokenCache} publishableKey={CLERK_PUBLISHABLE_KEY}>
                             <AuthProvider>
                                 <Slot />
