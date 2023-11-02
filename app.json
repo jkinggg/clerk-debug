@@ -1,0 +1,85 @@
+{
+  "expo": {
+    "name": "Overlay",
+    "jsEngine": "hermes",
+    "slug": "foo",
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "assets/**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.johnnyking.foo"
+    },
+    "scheme": "myapp",
+    "web": {
+      "bundler": "metro"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "44538326-9751-4a31-a977-b09548e60205",
+        "build": {
+          "experimental": {
+            "ios": {
+              "appExtensions": [
+                {
+                  "targetName": "ShareExtension",
+                  "bundleIdentifier": "com.johnnyking.foo.share-extension",
+                  "entitlements": {
+                    "com.apple.security.application-groups": [
+                      "group.com.johnnyking.foo"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "plugins": [
+      "expo-build-properties",
+      "expo-router",
+      [
+        "expo-config-plugin-ios-share-extension",
+        {
+          "activationRules": {
+            "NSExtensionActivationSupportsWebURLWithMaxCount": 1,
+            "NSExtensionActivationSupportsWebPageWithMaxCount": 1,
+            "NSExtensionActivationSupportsImageWithMaxCount": 1,
+            "NSExtensionActivationSupportsMovieWithMaxCount": 1
+          }
+        }
+      ],
+      [
+        "./plugins/withAndroidShareExtension/index",
+        {
+          "androidIntentFilters": [
+            "text/*",
+            "image/*",
+            "video/*"
+          ]
+        }
+      ]
+    ],
+    "android": {
+      "package": "com.johnnyking.foo"
+    }
+  }
+}
