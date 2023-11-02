@@ -10,62 +10,63 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2410896771C547B6BB0E759F /* ShareExtension.appex in Copy Files */ = {isa = PBXBuildFile; fileRef = 850D6AE7D94949E4B3ECC4C3 /* ShareExtension.appex */; };
-		2F333B04D80641429ED26ED1 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F8187118845CAAB7BD64E /* noop-file.swift */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		96905EF65AED1B983A6B3ABC /* libPods-focused2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-focused2.a */; };
-		B1573BE4BDAF4F268D8520D3 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F39A0EF9399456EB2BEE273 /* ShareViewController.swift */; };
+		3FFB298ADFE04EBB951B038C /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A27AB91E434C5C99207AB0 /* noop-file.swift */; };
+		41BF5331D29F4AEEA5D6F61D /* ShareExtension.appex in Copy Files */ = {isa = PBXBuildFile; fileRef = EB73BF5ABA404F07B193BF23 /* ShareExtension.appex */; };
+		96905EF65AED1B983A6B3ABC /* libPods-Overlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-Overlay.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		BF2DD74D44964DD19BFA308B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2642B797FA34A5D99EDDC9F /* MainInterface.storyboard */; };
-		E85805E8627D490F815CB37C /* ShareExtension.appex in Copy Files */ = {isa = PBXBuildFile; fileRef = E0E341DF469644BEB6840406 /* ShareExtension.appex */; };
+		BBE9BE13B9764DEDB7AD68E2 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB797488D6A14B4AAD5F131C /* ShareViewController.swift */; };
+		FDF2298FCE5F4DBB91BF9FA8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5CB080DF8C44709BA340F8 /* MainInterface.storyboard */; };
+		8C2D5BDED038476381B0AF6F /* ShareExtension.appex in Copy Files */ = {isa = PBXBuildFile; fileRef = C6A7B27AE8F14C1694C30E6B /* ShareExtension.appex */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		19889C0FC048465FA5F97D9C /* Copy Files */ = {
+		70B6D9D977C14F6887F9F999 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				41BF5331D29F4AEEA5D6F61D /* ShareExtension.appex in Copy Files */,
+				8C2D5BDED038476381B0AF6F /* ShareExtension.appex in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		46682FEAEA434539A7C56C78 /* Copy Files */ = {
+		AA05643FFDA54659BB6E77DD /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Copy Files";
 			dstPath = "";
 			dstSubfolderSpec = 13;
-			files = (
-				2410896771C547B6BB0E759F /* ShareExtension.appex in Copy Files */,
-				E85805E8627D490F815CB37C /* ShareExtension.appex in Copy Files */,
-			);
-			name = "Copy Files";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		13B07F961A680F5B00A75B9A /* focused2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = focused2.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = focused2/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = focused2/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = focused2/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = focused2/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = focused2/main.m; sourceTree = "<group>"; };
-		4F39A0EF9399456EB2BEE273 /* ShareViewController.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = /Users/johnnyking/Git/focused2/ios/ShareExtension/ShareViewController.swift; sourceTree = "<group>"; };
-		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-focused2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-focused2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C2E3173556A471DD304B334 /* Pods-focused2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-focused2.debug.xcconfig"; path = "Target Support Files/Pods-focused2/Pods-focused2.debug.xcconfig"; sourceTree = "<group>"; };
-		7A4D352CD337FB3A3BF06240 /* Pods-focused2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-focused2.release.xcconfig"; path = "Target Support Files/Pods-focused2/Pods-focused2.release.xcconfig"; sourceTree = "<group>"; };
-		850D6AE7D94949E4B3ECC4C3 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = undefined; name = ShareExtension.appex; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		A14F8187118845CAAB7BD64E /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "focused2/noop-file.swift"; sourceTree = "<group>"; };
-		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = focused2/SplashScreen.storyboard; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Overlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Overlay/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Overlay/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Overlay/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Overlay/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Overlay/main.m; sourceTree = "<group>"; };
+		4C5CB080DF8C44709BA340F8 /* MainInterface.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MainInterface.storyboard; path = /Users/johnnyking/Git/focused2/ios/ShareExtension/MainInterface.storyboard; sourceTree = "<group>"; };
+		52A27AB91E434C5C99207AB0 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "Overlay/noop-file.swift"; sourceTree = "<group>"; };
+		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-Overlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Overlay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C2E3173556A471DD304B334 /* Pods-Overlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Overlay.debug.xcconfig"; path = "Target Support Files/Pods-Overlay/Pods-Overlay.debug.xcconfig"; sourceTree = "<group>"; };
+		7A4D352CD337FB3A3BF06240 /* Pods-Overlay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Overlay.release.xcconfig"; path = "Target Support Files/Pods-Overlay/Pods-Overlay.release.xcconfig"; sourceTree = "<group>"; };
+		A15F4366633848CCBC99C536 /* Overlay-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "Overlay-Bridging-Header.h"; path = "Overlay/Overlay-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Overlay/SplashScreen.storyboard; sourceTree = "<group>"; };
+		AB797488D6A14B4AAD5F131C /* ShareViewController.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = /Users/johnnyking/Git/focused2/ios/ShareExtension/ShareViewController.swift; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		C2642B797FA34A5D99EDDC9F /* MainInterface.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MainInterface.storyboard; path = /Users/johnnyking/Git/focused2/ios/ShareExtension/MainInterface.storyboard; sourceTree = "<group>"; };
-		E06398A4A1064055A041E994 /* focused2-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "focused2-Bridging-Header.h"; path = "focused2/focused2-Bridging-Header.h"; sourceTree = "<group>"; };
-		E0E341DF469644BEB6840406 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = undefined; name = ShareExtension.appex; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB73BF5ABA404F07B193BF23 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = undefined; name = ShareExtension.appex; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-focused2/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Overlay/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		C6A7B27AE8F14C1694C30E6B /* ShareExtension.appex */ = {isa = PBXFileReference; name = "ShareExtension.appex"; path = "ShareExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; fileEncoding = undefined; lastKnownFileType = undefined; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; };
+		2D5A6F56692E4F64B7AFC07F /* ShareExtension-Info.plist */ = {isa = PBXFileReference; name = "ShareExtension-Info.plist"; path = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension-Info.plist"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text.plist.xml; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,14 +74,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96905EF65AED1B983A6B3ABC /* libPods-focused2.a in Frameworks */,
+				96905EF65AED1B983A6B3ABC /* libPods-Overlay.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* focused2 */ = {
+		13B07FAE1A68108700A75B9A /* Overlay */ = {
 			isa = PBXGroup;
 			children = (
 				BB2F792B24A3F905000567C9 /* Supporting */,
@@ -90,17 +91,17 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				A14F8187118845CAAB7BD64E /* noop-file.swift */,
-				E06398A4A1064055A041E994 /* focused2-Bridging-Header.h */,
+				52A27AB91E434C5C99207AB0 /* noop-file.swift */,
+				A15F4366633848CCBC99C536 /* Overlay-Bridging-Header.h */,
 			);
-			name = focused2;
+			name = Overlay;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				58EEBF8E8E6FB1BC6CAF49B5 /* libPods-focused2.a */,
+				58EEBF8E8E6FB1BC6CAF49B5 /* libPods-Overlay.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,7 +116,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* focused2 */,
+				13B07FAE1A68108700A75B9A /* Overlay */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
@@ -130,19 +131,19 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* focused2.app */,
-				850D6AE7D94949E4B3ECC4C3 /* ShareExtension.appex */,
-				E0E341DF469644BEB6840406 /* ShareExtension.appex */,
+				13B07F961A680F5B00A75B9A /* Overlay.app */,
+				EB73BF5ABA404F07B193BF23 /* ShareExtension.appex */,
+				C6A7B27AE8F14C1694C30E6B /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		92DBD88DE9BF7D494EA9DA96 /* focused2 */ = {
+		92DBD88DE9BF7D494EA9DA96 /* Overlay */ = {
 			isa = PBXGroup;
 			children = (
 				FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */,
 			);
-			name = focused2;
+			name = Overlay;
 			sourceTree = "<group>";
 		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
@@ -151,14 +152,14 @@
 				BB2F792C24A3F905000567C9 /* Expo.plist */,
 			);
 			name = Supporting;
-			path = focused2/Supporting;
+			path = Overlay/Supporting;
 			sourceTree = "<group>";
 		};
 		D65327D7A22EEC0BE12398D9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6C2E3173556A471DD304B334 /* Pods-focused2.debug.xcconfig */,
-				7A4D352CD337FB3A3BF06240 /* Pods-focused2.release.xcconfig */,
+				6C2E3173556A471DD304B334 /* Pods-Overlay.debug.xcconfig */,
+				7A4D352CD337FB3A3BF06240 /* Pods-Overlay.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -166,61 +167,54 @@
 		D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				92DBD88DE9BF7D494EA9DA96 /* focused2 */,
+				92DBD88DE9BF7D494EA9DA96 /* Overlay */,
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
+		C1798824314C44CDBDDD9EC4 /* ShareExtension */ = {
+			isa = "PBXGroup";
+			children = (
+				2D5A6F56692E4F64B7AFC07F /* ShareExtension-Info.plist */,
+			);
+			name = ShareExtension;
+			sourceTree = "<group>";
+			path = ShareExtension;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1069294DD12A491DA8AC121C /* ShareExtension */ = {
+		13B07F861A680F5B00A75B9A /* Overlay */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CB70DB3C6345475F8FB2ECB7 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
-			buildPhases = (
-				E032793905564F70B8B352A8 /* Sources */,
-				D674F6411F47480BAC5ED310 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ShareExtension;
-			productName = ShareExtension;
-			productReference = 850D6AE7D94949E4B3ECC4C3 /* ShareExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		13B07F861A680F5B00A75B9A /* focused2 */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "focused2" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Overlay" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
-				4937B8D3F2279D940CE3C281 /* [Expo] Configure project */,
+				FD23864C3BC960E5B71AD3AC /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				46682FEAEA434539A7C56C78 /* Copy Files */,
-				430BD321527B91084D147243 /* [CP] Embed Pods Frameworks */,
-				19889C0FC048465FA5F97D9C /* Copy Files */,
+				70B6D9D977C14F6887F9F999 /* Copy Files */,
+				D6501B2EFE24C2B51D88FDE7 /* [CP] Embed Pods Frameworks */,
+				AA05643FFDA54659BB6E77DD /* Copy Files */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = focused2;
-			productName = focused2;
-			productReference = 13B07F961A680F5B00A75B9A /* focused2.app */;
+			name = Overlay;
+			productName = Overlay;
+			productReference = 13B07F961A680F5B00A75B9A /* Overlay.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4E86ABA24690429B98AA9FA4 /* ShareExtension */ = {
+		D6E007718BC94168B6D1D666 /* ShareExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BBF365903AA74F9983CA413F /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildConfigurationList = 144C580ABB1C4863BA9C5637 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
 			buildPhases = (
-				30360D04273E4866B8BEF046 /* Sources */,
-				F08EC236886743D0AF8C7CFF /* Resources */,
+				7F858E644037408695F5B31E /* Sources */,
+				22334D6FA0BD4180BC8FE183 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -228,8 +222,24 @@
 			);
 			name = ShareExtension;
 			productName = ShareExtension;
-			productReference = E0E341DF469644BEB6840406 /* ShareExtension.appex */;
+			productReference = EB73BF5ABA404F07B193BF23 /* ShareExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
+		};
+		3F4A05E0F8BE4E179832659E /* "ShareExtension" */ = {
+			isa = PBXNativeTarget;
+			name = "ShareExtension";
+			productName = "ShareExtension";
+			productReference = C6A7B27AE8F14C1694C30E6B;
+			productType = "com.apple.product-type.app-extension";
+			buildConfigurationList = BE12DD5BB2B948AEA01BACF9;
+			buildPhases = (
+				AD735535EA414BBC87AE5879 /* Sources */,
+				26049124843F470395185C40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
 		};
 /* End PBXNativeTarget section */
 
@@ -244,7 +254,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "focused2" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Overlay" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -257,9 +267,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* focused2 */,
-				1069294DD12A491DA8AC121C /* ShareExtension */,
-				4E86ABA24690429B98AA9FA4 /* ShareExtension */,
+				13B07F861A680F5B00A75B9A /* Overlay */,
+				D6E007718BC94168B6D1D666 /* ShareExtension */,
+				3F4A05E0F8BE4E179832659E /* "ShareExtension" */,
 			);
 		};
 /* End PBXProject section */
@@ -275,15 +285,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D674F6411F47480BAC5ED310 /* Resources */ = {
+		22334D6FA0BD4180BC8FE183 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF2DD74D44964DD19BFA308B /* MainInterface.storyboard in Resources */,
+				FDF2298FCE5F4DBB91BF9FA8 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F08EC236886743D0AF8C7CFF /* Resources */ = {
+		26049124843F470395185C40 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -322,49 +332,12 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-focused2-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Overlay-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		430BD321527B91084D147243 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-focused2/Pods-focused2-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-focused2/Pods-focused2-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4937B8D3F2279D940CE3C281 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-focused2/expo-configure-project.sh\"\n";
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -372,7 +345,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-focused2/Pods-focused2-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Overlay/Pods-Overlay-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/expo-dev-launcher/EXDevLauncher.bundle",
@@ -387,7 +360,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-focused2/Pods-focused2-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Overlay/Pods-Overlay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6501B2EFE24C2B51D88FDE7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Overlay/Pods-Overlay-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Overlay/Pods-Overlay-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -409,6 +400,25 @@
 			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\nexport RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > `$NODE_BINARY --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/.packager.env'\"`\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open `$NODE_BINARY --print \"require('path').dirname(require.resolve('expo/package.json')) + '/scripts/launchPackager.command'\"` || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		FD23864C3BC960E5B71AD3AC /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-Overlay/expo-configure-project.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -419,22 +429,22 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
-				2F333B04D80641429ED26ED1 /* noop-file.swift in Sources */,
+				3FFB298ADFE04EBB951B038C /* noop-file.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30360D04273E4866B8BEF046 /* Sources */ = {
+		7F858E644037408695F5B31E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBE9BE13B9764DEDB7AD68E2 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E032793905564F70B8B352A8 /* Sources */ = {
+		AD735535EA414BBC87AE5879 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1573BE4BDAF4F268D8520D3 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,18 +453,18 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C2E3173556A471DD304B334 /* Pods-focused2.debug.xcconfig */;
+			baseConfigurationReference = 6C2E3173556A471DD304B334 /* Pods-Overlay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = focused2/focused2.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Overlay/Overlay.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = focused2/Info.plist;
+				INFOPLIST_FILE = Overlay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
@@ -465,8 +475,8 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnnyking.foo;
-				PRODUCT_NAME = focused2;
-				SWIFT_OBJC_BRIDGING_HEADER = "focused2/focused2-Bridging-Header.h";
+				PRODUCT_NAME = "Overlay";
+				SWIFT_OBJC_BRIDGING_HEADER = "Overlay/Overlay-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -476,13 +486,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A4D352CD337FB3A3BF06240 /* Pods-focused2.release.xcconfig */;
+			baseConfigurationReference = 7A4D352CD337FB3A3BF06240 /* Pods-Overlay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = focused2/focused2.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Overlay/Overlay.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = focused2/Info.plist;
+				INFOPLIST_FILE = Overlay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
@@ -493,53 +503,11 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnnyking.foo;
-				PRODUCT_NAME = focused2;
-				SWIFT_OBJC_BRIDGING_HEADER = "focused2/focused2-Bridging-Header.h";
+				PRODUCT_NAME = "Overlay";
+				SWIFT_OBJC_BRIDGING_HEADER = "Overlay/Overlay-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = Release;
-		};
-		1FBA6495A4B74845B614697A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = /Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 0.1.0;
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyking.foo.share-extension";
-				PRODUCT_NAME = ShareExtension;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		774AFA11CA464ED0998D11DD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = /Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 0.1.0;
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyking.foo.share-extension";
-				PRODUCT_NAME = ShareExtension;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -656,7 +624,7 @@
 			};
 			name = Release;
 		};
-		89084E4221724BBB8C666CA8 /* Debug */ = {
+		8F547404EFC842F78D43B2D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -681,22 +649,18 @@
 			};
 			name = Debug;
 		};
-		FB5A308DC09948FFBB046106 /* Debug */ = {
+		9F80AE8964A24F32B6B369BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = /Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MARKETING_VERSION = 0.1.0;
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyking.foo.share-extension";
 				PRODUCT_NAME = ShareExtension;
 				SKIP_INSTALL = YES;
@@ -704,12 +668,56 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
+			name = Release;
+		};
+		282F608D1E844AEB990E643F /* Debug */ = {
 			name = Debug;
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "ShareExtension";
+				SKIP_INSTALL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "1";
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = "0.1.0";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyking.foo.share-extension";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+		};
+		F1F216EE0561476D90EA5BB4 /* Release */ = {
+			name = Release;
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "ShareExtension";
+				SKIP_INSTALL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "1";
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = "0.1.0";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyking.foo.share-extension";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "focused2" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Overlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -718,7 +726,16 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "focused2" */ = {
+		144C580ABB1C4863BA9C5637 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F547404EFC842F78D43B2D9 /* Debug */,
+				9F80AE8964A24F32B6B369BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Overlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
@@ -727,20 +744,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BBF365903AA74F9983CA413F /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+		BE12DD5BB2B948AEA01BACF9 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				89084E4221724BBB8C666CA8 /* Debug */,
-				1FBA6495A4B74845B614697A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CB70DB3C6345475F8FB2ECB7 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FB5A308DC09948FFBB046106 /* Debug */,
-				774AFA11CA464ED0998D11DD /* Release */,
+				282F608D1E844AEB990E643F /* Debug */,
+				F1F216EE0561476D90EA5BB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

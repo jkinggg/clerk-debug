@@ -6,7 +6,7 @@ import { bookmarksCollectionName } from "../../../data/initialize";
 import { XStack, YStack, useMedia } from 'tamagui';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-export default function Notes() {
+export default function Bookmarks() {
   const router = useRouter();
   const media = useMedia();
   const [selectedCard, setSelectedCard] = useState(null);
@@ -17,17 +17,19 @@ export default function Notes() {
     (bookmarksCollection) => bookmarksCollection.find()
   );
 
-  const handleSelectCard = (noteId) => {
-    setSelectedCard(noteId);
-    router.push(`/notes/${noteId}`);
+  const handleSelectCard = (bookmarkId) => {
+    setSelectedCard(bookmarkId);
+    router.push(`/bookmarks/${bookmarkId}`);
   };
 
-  if(isFetching) {
-    return null
-  }
+  // if(isFetching) {
+  //   return null
+  // }
+
+  console.log(`In route /bookmarks`)
 
   return (
-    <CardList 
+    <CardList
       data={bookmarks} 
       cardHeight={50} 
       columns={1} 

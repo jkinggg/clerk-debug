@@ -2,10 +2,9 @@ import * as React from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useSignUp } from "@clerk/clerk-expo";
 import { log } from "../../utils/logger";
-import { RootStackScreenProps } from "../../types/types";
 import { styles } from "../../components/Styles";
 import { OAuthButtons } from "../../components/OAuth";
-import { useRouter, useSegments } from "expo-router";
+import { Link, Stack, useRouter, useSegments } from "expo-router";
 
 export default function SignUpScreen() {
   const router = useRouter();
@@ -16,7 +15,7 @@ export default function SignUpScreen() {
   const [emailAddress, setEmailAddress] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  const onSignUpPress = async () => {
+  const onSignUpPress = React.useCallback(async () => {
     if (!isLoaded) {
       return;
     }
@@ -37,12 +36,15 @@ export default function SignUpScreen() {
       log("Error:> " + err?.status || "");
       log("Error:> " + err?.errors ? JSON.stringify(err.errors) : err);
     }
-  };
-
-  const onSignInPress = () => router.replace("/signin");
+  }, [isLoaded, firstName, lastName, emailAddress, password]);
 
   return (
     <View style={styles.container}>
+      <Stack.Screen
+        options={{
+          title: "Sign Up",
+        }}
+      />
       <View style={styles.oauthView}>
         <OAuthButtons />
       </View>
@@ -96,12 +98,11 @@ export default function SignUpScreen() {
       <View style={styles.footer}>
         <Text>Have an account?</Text>
 
-        <TouchableOpacity
-          style={styles.secondaryButton}
-          onPress={onSignInPress}
-        >
-          <Text style={styles.secondaryButtonText}>Sign in</Text>
-        </TouchableOpacity>
+        <Link href="/signin" asChild>
+          <TouchableOpacity style={styles.secondaryButton}>
+            <Text style={styles.secondaryButtonText}>Sign in</Text>
+          </TouchableOpacity>
+        </Link>
       </View>
     </View>
   );

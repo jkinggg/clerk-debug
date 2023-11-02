@@ -69,6 +69,9 @@ export const bookmarkSchema = {
             type: 'string',
             maxLength: '128',
         },
+        url: {
+            type: 'string',
+        },
         description: {
             type: 'string',
         },

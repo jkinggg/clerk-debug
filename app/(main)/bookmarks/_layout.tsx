@@ -10,7 +10,7 @@ export const unstable_settings = {
   initialRouteName: "index",
 };
 
-export default function NotesLayout() {
+export default function BookmarksLayout() {
   const router = useRouter();
   const media = useMedia();
   const [selectedCard, setSelectedCard] = useState(null);
@@ -26,11 +26,11 @@ export default function NotesLayout() {
     console.log("Entering route defaulter")
     console.log(`gtMd is: ${media.gtMd}`)
     console.log(`currentRoute is: ${currentRoute}`)
-    if (media.gtMd && currentRoute === '/notes' && bookmarks !== null) {
+    if (media.gtMd && currentRoute === '/bookmarks' && bookmarks !== null) {
       console.log(`Length is ${bookmarks.length}`)
       if(bookmarks.length > 0) {
         console.log("Pushing first note for large screen")
-        router.push(`/notes/${bookmarks[0].id}`);
+        router.push(`/bookmarks/${bookmarks[0].id}`);
       }
     }
   }, [media.md, currentRoute, bookmarks]);

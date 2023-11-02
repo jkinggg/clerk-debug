@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View } from 'react-native';
-import { YStack, Card, Text, Image, Input, H2, Paragraph, XStack, useMedia, ScrollView } from 'tamagui';
+import { YStack, Card, Text, Image, Input, H2, Paragraph, XStack, useMedia, ScrollView, Switch, ZStack, Button } from 'tamagui';
 import { useRxData } from 'rxdb-hooks';
 import { FlashList } from "@shopify/flash-list";
 import { bookmarksCollectionName } from "../../../data/initialize";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import useScreenDimensions from '../../../hooks/screenDimensions';
+import { Squares2X2Icon, ListBulletIcon, SparklesIcon } from "react-native-heroicons/solid";
+import * as DropdownMenu from 'zeego/dropdown-menu'
 
 export default function Search() {
   const insets = useSafeAreaInsets();
@@ -15,6 +17,11 @@ export default function Search() {
   const [search, setSearch] = useState('');
   const [filteredData, setFilteredData] = useState([]);
   const [debounceSearch, setDebounceSearch] = useState(''); // For debouncing
+  const [viewType, setViewType] = useState('list');
+  const toggleViewType = () => {
+    setViewType(prevType => prevType === 'list' ? 'card' : 'list');
+  };
+  console.log(viewType)
   const abortController = useRef(null);
   
   const media = useMedia();
@@ -111,18 +118,59 @@ export default function Search() {
 
   return (
     <YStack flex={1} paddingTop={insets.top} paddingBottom={insets.bottom}>
-      <YStack padding={10}>
-        <Input
-          value={search}
-          onChangeText={handleSearch}
-          placeholder="Search..."
-        />
-      </YStack>
-      <XStack flexDirection='row' flexWrap='wrap'>
+      <XStack padding={10} alignItems="center" height={80}>
+        <YStack padding={10} flex={10}>
+          <XStack flex={1}>
+            <ZStack flex={1}>
+              <Input
+                flex={1}
+                value={search}
+                onChangeText={handleSearch}
+                placeholder="Search..."
+              />
+              <XStack position='absolute' right={10} top={0} bottom={0} justifyContent='center'>
+                <SparklesIcon />
+              </XStack>
+            </ZStack>
+          </XStack>
+        </YStack>
+        <YStack flex={1}>
+          <XStack justifyContent='space-around'>
+            <Button onPress={toggleViewType}>
+              {viewType === 'list' ? <Squares2X2Icon /> : <ListBulletIcon />}
+            </Button>
+          </XStack>
+        </YStack>
+      </XStack>
+
+      <View
+        style={{
+          flexDirection: viewType === 'card' ? 'column' : 'row',
+          flexWrap: viewType === 'card' ? 'nowrap' : 'wrap'
+        }}
+      >
         <FlashList
           numColumns={cardFlex}
           data={sortedBookmarks}
-          renderItem={({ item }) => 
+          renderItem={({ item }) => viewType === 'list' ?
+            <Card 
+              key={item.id}
+              elevate size="$4"
+              bordered
+              flex={1}
+              height={cardHeight}
+              margin={10}
+            >
+              <Image 
+                flex={1}
+                source={{ uri: item.image_url }} 
+                resizeMode='contain'
+                height={100 + '%'}
+                width={100 + '%'}
+              />
+              <Text>{item.description}</Text>
+            </Card>
+            :
             <Card 
               key={item.id}
               elevate size="$4"
@@ -143,7 +191,7 @@ export default function Search() {
           }
           estimatedItemSize={2}
         />
-      </XStack>
+      </View>
     </YStack>
   );
 }

@@ -1,6 +1,6 @@
 import { useRouter, useSegments } from "expo-router";
 import React, {useEffect, useState} from "react";
-import { useAuth } from '@clerk/clerk-react';
+import { useAuth } from '@clerk/clerk-expo';
 import { getAuth, signInWithCustomToken, onAuthStateChanged } from "firebase/auth";
 import initialize from '../data/initialize';
 import { RxDatabase } from 'rxdb';

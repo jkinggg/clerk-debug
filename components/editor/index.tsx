@@ -1,44 +1,25 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { WebView } from 'react-native-webview';
+import { YStack, Text } from 'tamagui';
 
-const defaultContent = {
-    time: 1696651795976,
-    blocks: [
-        {
-            id: "mhTl6ghSkV",
-            type: "paragraph",
-            data: {
-                text: "Hey. Meet the new Editor. On this picture you can see it in action. Then, try a demo 🤓",
-            },
-        },
-        {
-            id: "l98dyx3yjb",
-            type: "header",
-            data: {
-                text: "Key features",
-                level: 3,
-            },
-        }
-    ],
-};
-
-const EditorComponent = ({ initialContent = defaultContent }) => {
+const EditorComponent = ({ initialContent, onContentChange }) => {
+    console.log('EditorComponent rendered');
     const webviewRef = useRef(null);
     const [editorContent, setEditorContent] = useState(initialContent);
 
     const handleMessage = event => {
-        // Handle messages from WebView content here
         try {
             const message = JSON.parse(event.nativeEvent.data);
             if (message.type === 'contentUpdate') {
-                setEditorContent(message.data);
+                onContentChange(message.data);
             }
         } catch (e) {
             console.error('Failed to parse message from WebView:', e);
         }
     };
 
-    useEffect(() => {
+    const injectJavaScript = () => {
+        console.log('Injecting JavaScript');
         // Stringify the editorContent and escape newline and quote characters
         const stringifiedContent = JSON.stringify(editorContent)
             .replace(/\n/g, '\\n')
@@ -71,7 +52,7 @@ const EditorComponent = ({ initialContent = defaultContent }) => {
 
         // Inject the JavaScript into the WebView
         webviewRef.current?.injectJavaScript(injectedJavaScript);
-    }, [editorContent]);
+    };
 
     return (
         <WebView
@@ -80,6 +61,23 @@ const EditorComponent = ({ initialContent = defaultContent }) => {
             onMessage={handleMessage}
             startInLoadingState={true}
             javaScriptEnabled={true}
+            onLoadStart={() => console.log('WebView is loading')}
+            onLoad={() => {
+                console.log('WebView has loaded');
+                injectJavaScript();
+            }}
+            onError={(syntheticEvent) => {
+                const { nativeEvent } = syntheticEvent;
+                console.warn('WebView error: ', nativeEvent);
+            }}
+            renderError={(error) => {
+                console.warn('WebView renderError: ', error);
+                return (
+                    <YStack>
+                        <Text>An error occurred: {error}</Text>
+                    </YStack>
+                );
+            }}
         />
     );
 };

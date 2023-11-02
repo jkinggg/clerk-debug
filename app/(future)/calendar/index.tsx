@@ -1,7 +1,7 @@
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import React, { useState, useEffect, useContext, useCallback, useMemo } from 'react';
-import TimelineCalendar from '../../../src/calendar/TimelineCalendar';
-import { RangeTime } from '../../../src/calendar/types';
+import { useState, useEffect, useContext, useCallback, useMemo } from 'react';
+import TimelineCalendar from '../../../components/calendar/TimelineCalendar';
+import { RangeTime } from '../../../components/calendar/types';
 import { useRouter } from "expo-router";
 import { useRxData, useRxCollection, useRxQuery } from 'rxdb-hooks';
 import { AppContext } from "../../../data/context";
