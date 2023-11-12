@@ -10,39 +10,27 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1A1C1DFE7CA5435DB1C4EE4E /* ShareExtension.appex in Copy Files */ = {isa = PBXBuildFile; fileRef = 8C7F245643424BA39E2966A0 /* ShareExtension.appex */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		3FFB298ADFE04EBB951B038C /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A27AB91E434C5C99207AB0 /* noop-file.swift */; };
-		41BF5331D29F4AEEA5D6F61D /* ShareExtension.appex in Copy Files */ = {isa = PBXBuildFile; fileRef = EB73BF5ABA404F07B193BF23 /* ShareExtension.appex */; };
+		80734FD2A7AA4A539635C0C7 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C83EC34FC4534ABB1E8B2 /* ShareViewController.swift */; };
+		8111CC3A0E0D41C4A2750AD7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6A810F66C44CDCA9CD658B /* MainInterface.storyboard */; };
+		842D6D5CFD09468AABA61DF3 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC46BB7D9D84E8BB856AC8F /* noop-file.swift */; };
 		96905EF65AED1B983A6B3ABC /* libPods-Overlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-Overlay.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		BBE9BE13B9764DEDB7AD68E2 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB797488D6A14B4AAD5F131C /* ShareViewController.swift */; };
-		FDF2298FCE5F4DBB91BF9FA8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5CB080DF8C44709BA340F8 /* MainInterface.storyboard */; };
-		8C2D5BDED038476381B0AF6F /* ShareExtension.appex in Copy Files */ = {isa = PBXBuildFile; fileRef = C6A7B27AE8F14C1694C30E6B /* ShareExtension.appex */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		70B6D9D977C14F6887F9F999 /* Copy Files */ = {
+		E358F16FE81E4C2DA36C51DC /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				41BF5331D29F4AEEA5D6F61D /* ShareExtension.appex in Copy Files */,
-				8C2D5BDED038476381B0AF6F /* ShareExtension.appex in Copy Files */,
+				1A1C1DFE7CA5435DB1C4EE4E /* ShareExtension.appex in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AA05643FFDA54659BB6E77DD /* Copy Files */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			name = "Copy Files";
-			dstPath = "";
-			dstSubfolderSpec = 13;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -53,20 +41,18 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Overlay/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Overlay/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Overlay/main.m; sourceTree = "<group>"; };
-		4C5CB080DF8C44709BA340F8 /* MainInterface.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MainInterface.storyboard; path = /Users/johnnyking/Git/focused2/ios/ShareExtension/MainInterface.storyboard; sourceTree = "<group>"; };
-		52A27AB91E434C5C99207AB0 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "Overlay/noop-file.swift"; sourceTree = "<group>"; };
+		4AC46BB7D9D84E8BB856AC8F /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "Overlay/noop-file.swift"; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-Overlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Overlay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F6A810F66C44CDCA9CD658B /* MainInterface.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MainInterface.storyboard; path = /Users/johnnyking/Git/focused2/ios/ShareExtension/MainInterface.storyboard; sourceTree = "<group>"; };
 		6C2E3173556A471DD304B334 /* Pods-Overlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Overlay.debug.xcconfig"; path = "Target Support Files/Pods-Overlay/Pods-Overlay.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-Overlay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Overlay.release.xcconfig"; path = "Target Support Files/Pods-Overlay/Pods-Overlay.release.xcconfig"; sourceTree = "<group>"; };
-		A15F4366633848CCBC99C536 /* Overlay-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "Overlay-Bridging-Header.h"; path = "Overlay/Overlay-Bridging-Header.h"; sourceTree = "<group>"; };
+		8C7F245643424BA39E2966A0 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = undefined; name = ShareExtension.appex; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Overlay/SplashScreen.storyboard; sourceTree = "<group>"; };
-		AB797488D6A14B4AAD5F131C /* ShareViewController.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = /Users/johnnyking/Git/focused2/ios/ShareExtension/ShareViewController.swift; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		EB73BF5ABA404F07B193BF23 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = undefined; name = ShareExtension.appex; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F10C83EC34FC4534ABB1E8B2 /* ShareViewController.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = /Users/johnnyking/Git/focused2/ios/ShareExtension/ShareViewController.swift; sourceTree = "<group>"; };
+		F85157CE0C724F22A39003B2 /* Overlay-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "Overlay-Bridging-Header.h"; path = "Overlay/Overlay-Bridging-Header.h"; sourceTree = "<group>"; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Overlay/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		C6A7B27AE8F14C1694C30E6B /* ShareExtension.appex */ = {isa = PBXFileReference; name = "ShareExtension.appex"; path = "ShareExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; fileEncoding = undefined; lastKnownFileType = undefined; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; };
-		2D5A6F56692E4F64B7AFC07F /* ShareExtension-Info.plist */ = {isa = PBXFileReference; name = "ShareExtension-Info.plist"; path = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension-Info.plist"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text.plist.xml; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +77,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				52A27AB91E434C5C99207AB0 /* noop-file.swift */,
-				A15F4366633848CCBC99C536 /* Overlay-Bridging-Header.h */,
+				4AC46BB7D9D84E8BB856AC8F /* noop-file.swift */,
+				F85157CE0C724F22A39003B2 /* Overlay-Bridging-Header.h */,
 			);
 			name = Overlay;
 			sourceTree = "<group>";
@@ -132,8 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* Overlay.app */,
-				EB73BF5ABA404F07B193BF23 /* ShareExtension.appex */,
-				C6A7B27AE8F14C1694C30E6B /* ShareExtension.appex */,
+				8C7F245643424BA39E2966A0 /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,15 +157,6 @@
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
-		C1798824314C44CDBDDD9EC4 /* ShareExtension */ = {
-			isa = "PBXGroup";
-			children = (
-				2D5A6F56692E4F64B7AFC07F /* ShareExtension-Info.plist */,
-			);
-			name = ShareExtension;
-			sourceTree = "<group>";
-			path = ShareExtension;
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -190,15 +166,14 @@
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
-				FD23864C3BC960E5B71AD3AC /* [Expo] Configure project */,
+				69168CDEB744740163558411 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				70B6D9D977C14F6887F9F999 /* Copy Files */,
-				D6501B2EFE24C2B51D88FDE7 /* [CP] Embed Pods Frameworks */,
-				AA05643FFDA54659BB6E77DD /* Copy Files */,
+				E358F16FE81E4C2DA36C51DC /* Copy Files */,
+				23CD69F10AF5850CC5BA07E7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,12 +184,12 @@
 			productReference = 13B07F961A680F5B00A75B9A /* Overlay.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D6E007718BC94168B6D1D666 /* ShareExtension */ = {
+		9CEB390C4523493BA5ABC1A1 /* ShareExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 144C580ABB1C4863BA9C5637 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildConfigurationList = 116CBEBA5D7C4CD9B327386A /* Build configuration list for PBXNativeTarget "ShareExtension" */;
 			buildPhases = (
-				7F858E644037408695F5B31E /* Sources */,
-				22334D6FA0BD4180BC8FE183 /* Resources */,
+				A0F4FCB478D84A5AB02690FA /* Sources */,
+				0262B6D71EEC4AF38983F953 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -222,24 +197,8 @@
 			);
 			name = ShareExtension;
 			productName = ShareExtension;
-			productReference = EB73BF5ABA404F07B193BF23 /* ShareExtension.appex */;
+			productReference = 8C7F245643424BA39E2966A0 /* ShareExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
-		};
-		3F4A05E0F8BE4E179832659E /* "ShareExtension" */ = {
-			isa = PBXNativeTarget;
-			name = "ShareExtension";
-			productName = "ShareExtension";
-			productReference = C6A7B27AE8F14C1694C30E6B;
-			productType = "com.apple.product-type.app-extension";
-			buildConfigurationList = BE12DD5BB2B948AEA01BACF9;
-			buildPhases = (
-				AD735535EA414BBC87AE5879 /* Sources */,
-				26049124843F470395185C40 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
 		};
 /* End PBXNativeTarget section */
 
@@ -268,13 +227,20 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* Overlay */,
-				D6E007718BC94168B6D1D666 /* ShareExtension */,
-				3F4A05E0F8BE4E179832659E /* "ShareExtension" */,
+				9CEB390C4523493BA5ABC1A1 /* ShareExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0262B6D71EEC4AF38983F953 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8111CC3A0E0D41C4A2750AD7 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13B07F8E1A680F5B00A75B9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -282,21 +248,6 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22334D6FA0BD4180BC8FE183 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDF2298FCE5F4DBB91BF9FA8 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26049124843F470395185C40 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +290,43 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		23CD69F10AF5850CC5BA07E7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Overlay/Pods-Overlay-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Overlay/Pods-Overlay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69168CDEB744740163558411 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-Overlay/expo-configure-project.sh\"\n";
+		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -363,24 +351,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Overlay/Pods-Overlay-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D6501B2EFE24C2B51D88FDE7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Overlay/Pods-Overlay-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Overlay/Pods-Overlay-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -400,25 +370,6 @@
 			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\nexport RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > `$NODE_BINARY --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/.packager.env'\"`\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open `$NODE_BINARY --print \"require('path').dirname(require.resolve('expo/package.json')) + '/scripts/launchPackager.command'\"` || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FD23864C3BC960E5B71AD3AC /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-Overlay/expo-configure-project.sh\"\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -429,22 +380,15 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
-				3FFB298ADFE04EBB951B038C /* noop-file.swift in Sources */,
+				842D6D5CFD09468AABA61DF3 /* noop-file.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7F858E644037408695F5B31E /* Sources */ = {
+		A0F4FCB478D84A5AB02690FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBE9BE13B9764DEDB7AD68E2 /* ShareViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AD735535EA414BBC87AE5879 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				80734FD2A7AA4A539635C0C7 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +419,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnnyking.foo;
-				PRODUCT_NAME = "Overlay";
+				PRODUCT_NAME = Overlay;
 				SWIFT_OBJC_BRIDGING_HEADER = "Overlay/Overlay-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -503,11 +447,32 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnnyking.foo;
-				PRODUCT_NAME = "Overlay";
+				PRODUCT_NAME = Overlay;
 				SWIFT_OBJC_BRIDGING_HEADER = "Overlay/Overlay-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		39D743632261457A9D6AC41D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = /Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 0.1.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyking.foo.share-extension";
+				PRODUCT_NAME = ShareExtension;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -551,6 +516,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -566,6 +532,11 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 			};
@@ -606,6 +577,10 @@
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION,
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -618,13 +593,18 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		8F547404EFC842F78D43B2D9 /* Debug */ = {
+		DE7ABF29C7FF417A9C2B0A5A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -649,74 +629,18 @@
 			};
 			name = Debug;
 		};
-		9F80AE8964A24F32B6B369BB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = /Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 0.1.0;
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyking.foo.share-extension";
-				PRODUCT_NAME = ShareExtension;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		282F608D1E844AEB990E643F /* Debug */ = {
-			name = Debug;
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "ShareExtension";
-				SKIP_INSTALL = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "1";
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = "0.1.0";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyking.foo.share-extension";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-		};
-		F1F216EE0561476D90EA5BB4 /* Release */ = {
-			name = Release;
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "ShareExtension";
-				SKIP_INSTALL = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "/Users/johnnyking/Git/focused2/ios/ShareExtension/ShareExtension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "1";
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = "0.1.0";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyking.foo.share-extension";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		116CBEBA5D7C4CD9B327386A /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE7ABF29C7FF417A9C2B0A5A /* Debug */,
+				39D743632261457A9D6AC41D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Overlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -726,29 +650,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		144C580ABB1C4863BA9C5637 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8F547404EFC842F78D43B2D9 /* Debug */,
-				9F80AE8964A24F32B6B369BB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Overlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BE12DD5BB2B948AEA01BACF9 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				282F608D1E844AEB990E643F /* Debug */,
-				F1F216EE0561476D90EA5BB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

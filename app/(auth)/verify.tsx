@@ -1,12 +1,12 @@
 import { Stack } from "expo-router";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import { useSignUp } from "@clerk/clerk-expo";
+import clerk from '../../hooks/clerk';
 import * as React from "react";
 import { log } from "../../utils/logger";
 import { styles } from "../../components/Styles";
 
 export default function Page() {
-  const { isLoaded, signUp, setSession } = useSignUp();
+  const { isLoaded, signUp, setSession } = clerk.useSignUp();
 
   const [code, setCode] = React.useState("");
 

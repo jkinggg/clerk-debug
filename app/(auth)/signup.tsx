@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import { useSignUp } from "@clerk/clerk-expo";
+import { Text, TextInput, TouchableOpacity, View, Platform } from "react-native";
+import clerk from '../../hooks/clerk';
 import { log } from "../../utils/logger";
 import { styles } from "../../components/Styles";
 import { OAuthButtons } from "../../components/OAuth";
@@ -9,7 +9,7 @@ import { Link, Stack, useRouter, useSegments } from "expo-router";
 export default function SignUpScreen() {
   const router = useRouter();
   
-  const { isLoaded, signUp } = useSignUp();
+  const { isLoaded, signUp } = clerk.useSignUp();
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
   const [emailAddress, setEmailAddress] = React.useState("");
@@ -45,9 +45,11 @@ export default function SignUpScreen() {
           title: "Sign Up",
         }}
       />
+      {Platform.OS !== 'web' && (
       <View style={styles.oauthView}>
         <OAuthButtons />
       </View>
+      )}
 
       <View style={styles.inputView}>
         <TextInput

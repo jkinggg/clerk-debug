@@ -1,18 +1,17 @@
 // import './shim';
 import 'react-native-get-random-values';
 import 'expo-dev-client';
-import {useEffect, useState} from 'react';
-import { Slot, Link, usePathname, useRouter, SplashScreen } from 'expo-router';
+import {useEffect, useRef, useState } from 'react';
+import { Slot, Link, useRouter, SplashScreen } from 'expo-router';
 import { Drawer } from "expo-router/drawer";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
-import { Dimensions } from 'react-native';
 import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
-import { useColorScheme, Platform } from 'react-native'
-import { TamaguiProvider, Theme, useMedia, XStack, YStack} from 'tamagui'
+import { AppState, useColorScheme, Platform } from 'react-native'
+import { TamaguiProvider, Theme, useMedia } from 'tamagui'
 import { SafeAreaProvider, SafeAreaView, initialWindowMetrics, useSafeAreaInsets } from 'react-native-safe-area-context';
 import config from '../tamagui.config'
-import { ClerkProvider } from "@clerk/clerk-expo";
+import clerk from '../hooks/clerk';
 import { tokenCache } from "../utils/cache";
 import { AuthProvider } from '../hooks/auth';
 import { initializeApp } from 'firebase/app';
@@ -30,6 +29,10 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {    
 
     const colorScheme = useColorScheme()
+    const appState = useRef(AppState.currentState);
+    const [appStateVisible, setAppStateVisible] = useState(appState.current);
+    const [activeColorScheme, setActiveColorScheme] = useState(colorScheme);
+
     const [loaded, error] = useFonts({
         Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
         InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
@@ -46,10 +49,25 @@ export default function RootLayout() {
         }
     }, [loaded]);
 
-    const CLERK_PUBLISHABLE_KEY = "pk_test_bWVldC1zdGlua2J1Zy01Mi5jbGVyay5hY2NvdW50cy5kZXYk"
+    useEffect(() => {
+        const subscription = AppState.addEventListener("change", (nextAppState) => {
+            appState.current = nextAppState;
+            setAppStateVisible(appState.current);
+        });
+
+        return () => {
+            subscription.remove();
+        };
+    }, []);
+
+    useEffect(() => {
+        if (appStateVisible === "active") {
+            setActiveColorScheme(colorScheme);
+        }
+    }, [appStateVisible, colorScheme]);
+
 
     const router = useRouter();
-    
     if (Platform.OS !== 'web') {
         const { shareIntent, resetShareIntent } = useShareIntent();
         useEffect(() => {
@@ -60,16 +78,17 @@ export default function RootLayout() {
         }, [shareIntent]);
     }
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyAXBYHJlHH4UqQ6oaQROkkd589vzrFpwoI",
-        authDomain: "assistant-2e3e1.firebaseapp.com",
-        projectId: "assistant-2e3e1",
-        storageBucket: "assistant-2e3e1.appspot.com",
-        messagingSenderId: "6430897433",
-        appId: "1:6430897433:web:858cfef0bcd2bd642ac188",
-        measurementId: "G-ESBXEFP14B"
-    };
+    const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUNISHABLE_KEY
 
+    const firebaseConfig = {
+        apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
+        authDomain: process.env.EXPO_PUBLIC_AUTH_DOMAIN,
+        projectId: process.env.EXPO_PUBLIC_PROJECT_ID,
+        storageBucket: process.env.EXPO_PUBLIC_STORAGE_BUCKET,
+        messagingSenderId: process.env.EXPO_PUBLIC_MESSAGING_SENDER_ID,
+        appId: process.env.EXPO_PUBLIC_APP_ID,
+        measurementId: process.env.EXPO_PUBLIC_MEASUREMENT_ID
+    };
     initializeApp(firebaseConfig);
 
     const media = useMedia();
@@ -80,8 +99,8 @@ export default function RootLayout() {
 
     return (
         <TamaguiProvider config={config}>
-            <Theme name='light'>
-                <ClerkProvider tokenCache={tokenCache} publishableKey={CLERK_PUBLISHABLE_KEY}>
+            <Theme name={activeColorScheme}>
+                <clerk.ClerkProvider tokenCache={tokenCache} publishableKey={CLERK_PUBLISHABLE_KEY}>
                     <AuthProvider>
                         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
                             <Drawer
@@ -97,7 +116,7 @@ export default function RootLayout() {
                             </Drawer>
                         </SafeAreaProvider>
                     </AuthProvider>
-                </ClerkProvider>
+                </clerk.ClerkProvider>
             </Theme>
         </TamaguiProvider>
     );

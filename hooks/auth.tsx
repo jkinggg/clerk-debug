@@ -1,6 +1,6 @@
 import { useRouter, useSegments } from "expo-router";
 import React, {useEffect, useState} from "react";
-import { useAuth } from '@clerk/clerk-expo';
+import clerk from './clerk';
 import { getAuth, signInWithCustomToken, onAuthStateChanged } from "firebase/auth";
 import initialize from '../data/initialize';
 import { RxDatabase } from 'rxdb';
@@ -30,7 +30,7 @@ function useProtectedRoute(user) {
 
 export function AuthProvider(props) {
   console.log("Entering auth provider");
-  const { userId, getToken } = useAuth();
+  const { userId, getToken, sessionId } = clerk.useAuth();
   const auth = getAuth();
   const [db, setDb] = useState<RxDatabase>();
   console.log("clerk user ::", userId);
@@ -39,13 +39,21 @@ export function AuthProvider(props) {
   useEffect(() => {
     if (userId) {
       const signInWithClerk = async () => {
-        const token = await getToken({ template: "integration_firebase" });
-        const userCredentials = await signInWithCustomToken(auth, token);
-        console.log("firebase user ::", userCredentials.user);
+        try {
+          console.log(`Getting token for ${sessionId}`);
+          const token = await getToken({ template: "integration_firebase" });
+          console.log(`Got token: ${token}`)
+          console.log("Signing on with custom token...")
+          const userCredentials = await signInWithCustomToken(auth, token);
+          console.log("Signed into firebase")
+          console.log("firebase user ::", userCredentials.user);
+        } catch (error) {
+          console.error("Error signing in with custom token:", error);
+        }
       };
       signInWithClerk();
     }
-  }, [userId, getToken, auth]);
+  }, [userId, auth]);
 
   useEffect(() => {
     if (auth.currentUser && !db) {

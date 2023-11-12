@@ -1,7 +1,7 @@
 import React from "react";
 import * as WebBrowser from "expo-web-browser";
 import { Text, TouchableOpacity } from "react-native";
-import { useOAuth } from "@clerk/clerk-expo";
+import clerk from '../hooks/clerk';
 import { styles } from "./Styles";
 import { useWamUpBrowser } from "../hooks/useWarmUpBrowser";
 
@@ -10,9 +10,11 @@ WebBrowser.maybeCompleteAuthSession();
 export function OAuthButtons() {
   // Warm up the android browser to improve UX
   // https://docs.expo.dev/guides/authentication/#improving-user-experience
+
+  // Only works for native, implementation for we: https://clerk.com/docs/custom-flows/oauth-connections
   useWamUpBrowser();
 
-  const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
+  const { startOAuthFlow } = clerk.useOAuth({ strategy: "oauth_google" });
 
   const onPress = React.useCallback(async () => {
     try {

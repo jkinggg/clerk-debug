@@ -6,20 +6,15 @@ import { bookmarksCollectionName } from "../../../data/initialize";
 import { XStack, YStack, useMedia } from 'tamagui';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-export const unstable_settings = {
-  initialRouteName: "index",
-};
-
-export default function BookmarksLayout() {
+export default function BookmarksScren() {
   const router = useRouter();
   const media = useMedia();
-  const [selectedCard, setSelectedCard] = useState(null);
   const insets = useSafeAreaInsets();
   const currentRoute = usePathname();
 
   const { result: bookmarks, isFetching } = useRxData(
     bookmarksCollectionName,
-    (bookmarksCollection) => bookmarksCollection.find()
+    (bookmarksCollection) => bookmarksCollection.find().where('url').ne(null)
   );
 
   useEffect(() => {
@@ -30,28 +25,21 @@ export default function BookmarksLayout() {
       console.log(`Length is ${bookmarks.length}`)
       if(bookmarks.length > 0) {
         console.log("Pushing first note for large screen")
-        router.push(`/bookmarks/${bookmarks[0].id}`);
+        router.push({ pathname: "/bookmarks/item", params: { id: bookmarks[0].id } });
       }
     }
   }, [media.md, currentRoute, bookmarks]);
 
-  const handleSelectCard = (noteId) => {
-    setSelectedCard(noteId);
-    router.push(`/notes/${noteId}`);
+  const handleSelectCard = (bookmarkId) => {
+    router.push({ pathname: "/bookmarks/item", params: { id: bookmarkId } });
   };
-
-  if(isFetching) {
-    return null
-  }
-
-  console.log(`Not in defaulter, length is ${bookmarks.length}`)
 
   return (
     <XStack paddingTop={insets.top} paddingBottom={insets.bottom} flex={1} backgroundColor={'white'}>
       {media.gtMd ? (
         <>
           <YStack flex={1}>
-            <CardList 
+            <CardList
               data={bookmarks} 
               cardHeight={50} 
               columns={1} 

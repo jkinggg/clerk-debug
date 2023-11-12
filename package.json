@@ -40,7 +40,7 @@
     "@babel/plugin-transform-template-literals": "^7.22.5",
     "@babel/preset-env": "^7.23.2",
     "@babel/runtime": "^7.22.15",
-    "@clerk/clerk-expo": "0.19.13-snapshot.vceb8c8a",
+    "@clerk/clerk-expo": "^0.19.15",
     "@expo/vector-icons": "github:expo/vector-icons",
     "@react-native-menu/menu": "^0.9.1",
     "@react-navigation/drawer": "^6.6.2",

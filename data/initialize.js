@@ -1,15 +1,11 @@
 import { addRxPlugin, createRxDatabase } from 'rxdb';
-import fetch from 'cross-fetch';
 import { RxDBDevModePlugin } from 'rxdb/plugins/dev-mode';
 import { RxDBMigrationPlugin } from 'rxdb/plugins/migration'
 import { RxDBUpdatePlugin } from 'rxdb/plugins/update'
 import { RxDBQueryBuilderPlugin } from 'rxdb/plugins/query-builder'
-import { initializeApp } from 'firebase/app';
 import { getFirestore, collection } from 'firebase/firestore';
 import { replicateFirestore } from 'rxdb/plugins/replication-firestore';
-import { getAuth, signInWithCustomToken } from "firebase/auth";
 import { app } from "firebase/app";
-import { useAuth } from "@clerk/clerk-expo";
 // import { observeNewCollections } from 'rxdb-hooks';
 
 addRxPlugin(RxDBMigrationPlugin)

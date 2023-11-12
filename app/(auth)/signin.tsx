@@ -1,6 +1,6 @@
 import React from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import { useSignIn } from "@clerk/clerk-expo";
+import { Text, TextInput, TouchableOpacity, View, Platform } from "react-native";
+import clerk from '../../hooks/clerk';
 import { log } from "../../utils/logger";
 import { OAuthButtons } from "../../components/OAuth";
 import { styles } from "../../components/Styles";
@@ -8,7 +8,7 @@ import { Link, Stack, useRouter, useSegments } from "expo-router";
 
 
 export default function SignInScreen() {
-  const { signIn, setSession, isLoaded } = useSignIn();
+  const { signIn, setActive, isLoaded } = clerk.useSignIn();
 
   const [emailAddress, setEmailAddress] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -24,7 +24,7 @@ export default function SignInScreen() {
         password,
       });
 
-      await setSession(completeSignIn.createdSessionId);
+      await setActive({ session: completeSignIn.createdSessionId });
     } catch (err: any) {
       log("Error:> " + err?.status || "");
       log("Error:> " + err?.errors ? JSON.stringify(err.errors) : err);
@@ -38,9 +38,11 @@ export default function SignInScreen() {
           title: "Sign In",
         }}
       />
+      {Platform.OS !== 'web' && (
       <View style={styles.oauthView}>
         <OAuthButtons />
       </View>
+      )}
 
       <View style={styles.inputView}>
         <TextInput
